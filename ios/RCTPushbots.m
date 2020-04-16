@@ -32,7 +32,7 @@ RCT_EXPORT_MODULE()
     static RCTPushbots *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [super allocWithZone:zone];
+        sharedInstance = [super allocWithZone:nil];
     });
     return sharedInstance;
 }
