@@ -23,19 +23,18 @@
 
 @implementation RCTPushbots
 
-@synthesize bridge = _bridge;
-
 RCT_EXPORT_MODULE()
-
-static RCTBridge *curRCTBridge;
-
-- (void)setBridge:(RCTBridge *)receivedBridge {
-    _bridge = receivedBridge;
-    curRCTBridge = receivedBridge;
-}
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
++ (id)allocWithZone:(NSZone *)zone {
+    static RCTPushbots *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [super allocWithZone:zone];
+    });
+    return sharedInstance;
 }
 - (NSArray<NSString *> *)supportedEvents
 {
@@ -100,8 +99,7 @@ RCT_EXPORT_METHOD(toggleNotifications:(BOOL*)toggle)
 
 RCT_EXPORT_METHOD(registerForRemoteNotifications)
 {
-//    [Pushbots registerForRemoteNotifications];
-    curRCTBridge = self.bridge;
+    
 }
 
 
