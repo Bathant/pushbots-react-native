@@ -9,7 +9,7 @@ export default class Pushbots {
 	static addEventListener(type: any, handler: Function) {
 		var listener;
 		if (type === 'received') {			
-			listener = pushbtsManagerEmitter.addListener(
+			listener = pushbotsManagerEmitter.addListener(
 				'Pushbots__RemoteNotificationReceived',
 				(notification) => {
 					handler(notification);
