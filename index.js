@@ -3,18 +3,13 @@ import { NativeModules, NativeAppEventEmitter, Platform } from 'react-native';
 const RNPushbotsModule = NativeModules.Pushbots;
 
 const not_handlers = new Map();
-const calendarManagerEmitter = new NativeEventEmitter(RCTPushbots);
-
-const subscription = calendarManagerEmitter.addListener(
-  'Pushbots__RemoteNotificationReceived',
-  (result) => console.log(result+"what is going on !!!")
-);
+const calendarManagerEmitter = new NativeEventEmitter(RNPushbotsModule);
 
 export default class Pushbots {
 	static addEventListener(type: any, handler: Function) {
 		var listener;
 		if (type === 'received') {			
-			listener = NativeAppEventEmitter.addListener(
+			listener = calendarManagerEmitter.addListener(
 				'Pushbots__RemoteNotificationReceived',
 				(notification) => {
 					handler(notification);
