@@ -28,7 +28,7 @@ RCT_EXPORT_MODULE()
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-+ (id)allocWithZone:(NSZone *)zone {
++ (instancetype)alloc{
     static RCTPushbots *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -38,7 +38,7 @@ RCT_EXPORT_MODULE()
 }
 - (NSArray<NSString *> *)supportedEvents
 {
-    return @[@"Pushbots__RemoteNotificationReceived"];
+    return @[@"Pushbots__RemoteNotificationReceived", @"Pushbots__RemoteNotificationOpened"];
 }
 
 - (id) initWithAppId:(NSString*)appId withLaunchOptions:(NSDictionary *)launchOptions; {
@@ -47,9 +47,13 @@ RCT_EXPORT_MODULE()
 }
 
 - (id) initWithAppId:(NSString*)appId withLaunchOptions:(NSDictionary *)launchOptions prompt:(BOOL)prompt{
-       [Pushbots initWithAppId:appId withLaunchOptions:launchOptions prompt:prompt receivedNotification:^(NSDictionary *result) {
-         [self sendEventWithName:@"Pushbots__RemoteNotificationReceived" body: result];
-     }];
+    [Pushbots initWithAppId:appId withLaunchOptions:launchOptions prompt:prompt receivedNotification:^(NSDictionary *result) {
+        [self sendEventWithName:@"Pushbots__RemoteNotificationReceived" body: result];
+        
+    } openedNotification:^(NSDictionary *result) {
+        [self sendEventWithName:@"Pushbots__RemoteNotificationOpened" body: result];
+        
+    }];
     return self;
 }
 
