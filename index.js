@@ -1,4 +1,4 @@
-import { NativeModules, NativeAppEventEmitter, Platform } from 'react-native';
+import { NativeModules, NativeAppEventEmitter,NativeEventEmitter, Platform } from 'react-native';
 
 const RNPushbotsModule = NativeModules.Pushbots;
 
