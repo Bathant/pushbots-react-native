@@ -3,7 +3,7 @@ import { NativeModules, NativeAppEventEmitter,NativeEventEmitter, Platform } fro
 const RNPushbotsModule = NativeModules.Pushbots;
 
 const not_handlers = new Map();
-const pushbtsManagerEmitter = new NativeEventEmitter(RNPushbotsModule);
+const pushbotsManagerEmitter = new NativeEventEmitter(RNPushbotsModule);
 
 export default class Pushbots {
 	static addEventListener(type: any, handler: Function) {
@@ -16,7 +16,7 @@ export default class Pushbots {
 				}
 			);
 		}else if (type === 'opened') {			
-			listener = NativeAppEventEmitter.addListener(
+			listener = pushbotsManagerEmitter.addListener(
 				'Pushbots__RemoteNotificationOpened',
 				(notification) => {
 					handler(notification);
