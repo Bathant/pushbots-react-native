@@ -3,13 +3,13 @@ import { NativeModules, NativeAppEventEmitter,NativeEventEmitter, Platform } fro
 const RNPushbotsModule = NativeModules.Pushbots;
 
 const not_handlers = new Map();
-const calendarManagerEmitter = new NativeEventEmitter(RNPushbotsModule);
+const pushbtsManagerEmitter = new NativeEventEmitter(RNPushbotsModule);
 
 export default class Pushbots {
 	static addEventListener(type: any, handler: Function) {
 		var listener;
 		if (type === 'received') {			
-			listener = calendarManagerEmitter.addListener(
+			listener = pushbtsManagerEmitter.addListener(
 				'Pushbots__RemoteNotificationReceived',
 				(notification) => {
 					handler(notification);
