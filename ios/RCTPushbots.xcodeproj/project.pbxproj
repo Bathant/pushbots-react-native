@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52580448244A13EB00053EF1 /* Pushbots.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52580447244A13EB00053EF1 /* Pushbots.framework */; };
+		5258044A244A140600053EF1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52580449244A140600053EF1 /* CoreTelephony.framework */; };
+		5258044C244A140D00053EF1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5258044B244A140D00053EF1 /* WebKit.framework */; };
 		BA89F5B4205BDE6D00ABDE84 /* libRCTPushbots.a in Copy Files */ = {isa = PBXBuildFile; fileRef = 134814201AA4EA6300B7C361 /* libRCTPushbots.a */; };
 		BA902CEF1FBDB18600574058 /* RCTPushbots.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RCTPushbots.m */; };
 /* End PBXBuildFile section */
@@ -27,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRCTPushbots.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTPushbots.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		52580447244A13EB00053EF1 /* Pushbots.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pushbots.framework; sourceTree = SOURCE_ROOT; };
+		52580449244A140600053EF1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		5258044B244A140D00053EF1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		B3E7B5881CC2AC0600A0062D /* RCTPushbots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTPushbots.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RCTPushbots.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTPushbots.m; sourceTree = "<group>"; };
 		BA89F5B7205BDE9D00ABDE84 /* Pushbots.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pushbots.h; sourceTree = "<group>"; };
@@ -37,6 +43,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5258044C244A140D00053EF1 /* WebKit.framework in Frameworks */,
+				5258044A244A140600053EF1 /* CoreTelephony.framework in Frameworks */,
+				52580448244A13EB00053EF1 /* Pushbots.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +63,9 @@
 		52B07AD62448DD3A000EF4B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5258044B244A140D00053EF1 /* WebKit.framework */,
+				52580449244A140600053EF1 /* CoreTelephony.framework */,
+				52580447244A13EB00053EF1 /* Pushbots.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
